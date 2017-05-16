@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="weather">
+  <ion-grid *ngIf="weather">
+    <ion-row>
+      <ion-col width=100>
+        <ion-list>
+          <ion-item>
+            <ion-label fixed>City</ion-label>
+            <ion-input type="text" value="" name="query" [(ngModel)]="query" (keyup) = "getQuery()"></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item *ngFor="let result of results">
+            <span (click)="chooseCity(result)">{{result.name}}</span>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-50 offset-25>
+        <h2 class="location">{{weather.display_location.full}}</h2>
+        <div class="location">
+          <img src="{{weather.icon_url}}" alt="{{weather.weather}}" />
+          <h3 class="location">{{weather.weather}}</h3>
+          <h1 class="location">{{weather.temp_c}}&deg;C</h1>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-100>
+        <ion-list>
+          <ion-item>
+            <strong>Temp: </strong>{{weather.temperature_string}}
+          </ion-item>
+          <ion-item>
+            <strong>Relative Humidity: </strong>{{weather.relative_humidity}}
+          </ion-item>
+          <ion-item>
+            <strong>Dewpoint: </strong>{{weather.dewpoint_string}}
+          </ion-item>
+          <ion-item>
+            <strong>Visibility: </strong>{{weather.visibility_mi}}
+          </ion-item>
+          <ion-item>
+            <strong>Wind: </strong>{{weather.wind_mph}} Mph
+          </ion-item>
+          <ion-item>
+            <strong>Wind Direction: </strong>{{weather.wind_dir}}
+          </ion-item>
+          <ion-item>
+            <strong>Heat Index: </strong>{{weather.wind_dir}}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,16 @@
+{
+  "name": "ionic2-app-base",
+  "app_id": "",
+  "typescript": true,
+  "v2": true,
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://api.wunderground.com/api"
+    },
+    {
+      "path": "/search",
+      "proxyUrl": "http://autocomplete.wunderground.com"
+    }
+  ]
+}

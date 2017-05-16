@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="setting">
+  <ion-grid>
+    <ion-row>
+      <ion-col width-100>
+        <ion-list>
+          <ion-item>
+            <ion-label fixed>Default City</ion-label>
+            <ion-input type="text" name="query" [(ngModel)]="query" (keyup) = "getQuery()"></ion-input>
+          </ion-item>
+          <ion-list>
+            <ion-item *ngFor="let result of results">
+              <span (click)="setDefaultCity(result)">{{result.name}}</span>
+            </ion-item>
+          </ion-list>
+          <p class="current">Current: {{defaultCity}}</p>
+          <button type="submit" ion-button block (click)="saveChanges()">Save Changes</button>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
